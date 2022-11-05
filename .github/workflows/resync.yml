@@ -1,0 +1,26 @@
+name: "Moralis metadata resync"
+
+on:
+  schedule:
+    - cron: "00 01,13 * * *" # 1 A.M and 1 P.M
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Git Checkout
+        uses: actions/checkout@v2
+
+      - name: Set up python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.10
+
+      - name: Resync metadata
+        env:
+          MORALIS_KEY: ${{ secrets.MORALIS_KEY }}
+        run: |
+          pip install -r requirements.txt
+          python3 ./sync.py
