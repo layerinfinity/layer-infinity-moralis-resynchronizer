@@ -4,6 +4,8 @@ import requests
 import time
 import urllib.parse
 
+from config import API_KEY
+
 
 @dataclass
 class ChainNFTSet:
@@ -11,9 +13,6 @@ class ChainNFTSet:
     tokenId: int
     tokenAddress: str
 
-
-# Main logic
-API_KEY = os.environ.get("MORALIS_KEY")
 
 # Gems
 gemNftEthTestnet = ChainNFTSet(
@@ -98,10 +97,36 @@ queue.append(
     )
 )
 
+queue.append(
+    ChainNFTSet(
+        chain="eth",
+        tokenAddress="0x0FB768c93FA9f0268EF5eb65F6B06E199Ee68c15",
+        tokenId=1,
+    )
+)
+queue.append(
+    ChainNFTSet(
+        chain="avalanche",
+        tokenAddress="0xceedB5A30dcdd2BB9Ce8e75905a0Dedf96628801",
+        tokenId=1,
+    )
+)
+queue.append(
+    ChainNFTSet(
+        chain="polygon",
+        tokenAddress="0xD4A554B125672CE8dA053205bC9DA4E26aA78f44",
+        tokenId=1,
+    )
+)
 
-for item in queue:
-    url = f"https://deep-index.moralis.io/api/v2/nft/{item.tokenAddress}/{item.tokenId}/metadata/resync?chain={urllib.parse.quote(item.chain)}&flag=uri&mode=async"
-    headers = {"accept": "application/json", "X-API-Key": API_KEY}
-    response = requests.get(url, headers=headers)
 
-    time.sleep(2)
+def start_sync():
+    for item in queue:
+        url = f"https://deep-index.moralis.io/api/v2/nft/{item.tokenAddress}/{item.tokenId}/metadata/resync?chain={urllib.parse.quote(item.chain)}&flag=uri&mode=async"
+        headers = {"accept": "application/json", "X-API-Key": API_KEY}
+        response = requests.get(url, headers=headers)
+        print(f"Processing address {item.tokenAddress} on chain {item.chain}:")
+        print(response.text)
+
+        time.sleep(2)
+    return
