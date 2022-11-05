@@ -21,6 +21,8 @@ jobs:
       - name: Resync metadata
         env:
           MORALIS_KEY: ${{ secrets.MORALIS_KEY }}
+          BASIC_AUTH_USER: ${{ secrets.BASIC_AUTH_USER }}
+          BASIC_AUTH_PASSWORD: ${{ secrets.BASIC_AUTH_PASSWORD }}
         run: |
           pip install -r requirements.txt
           uvicorn main:app --host 0.0.0.0 --app-dir src --reload
