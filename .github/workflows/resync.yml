@@ -26,4 +26,4 @@ jobs:
           BASIC_AUTH_PASSWORD: ${{ secrets.BASIC_AUTH_PASSWORD }}
         run: |
           pip install -r requirements.txt
-          python3 ./src/sync.py
+          python3 ./src/exec_sync.py
