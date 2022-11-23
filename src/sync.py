@@ -14,20 +14,6 @@ class ChainNFTSet:
     tokenAddress: str
 
 
-# Gems
-gemNftEthTestnet = ChainNFTSet(
-    chain="eth", tokenAddress="0x5e37Eb26aAF8E34c49FB57f43F118a3FF73BBf0b", tokenId=1
-)
-gemNftAvaxTestnet = ChainNFTSet(
-    chain="avalanche testnet",
-    tokenAddress="0xF457e1DB610B0A6F5d41d8CEf7655A5C68d67D71",
-    tokenId=1,
-)
-gemNftPolygonTestnet = ChainNFTSet(
-    chain="mumbai", tokenAddress="0x0Ca472FbfA460bC45e7DCF2faf97321Be4CF9eB0", tokenId=1
-)
-
-
 queue: list[ChainNFTSet] = []
 
 # Blanks
@@ -78,21 +64,21 @@ queue.append(
 queue.append(
     ChainNFTSet(
         chain="goerli",
-        tokenAddress="0x5e37Eb26aAF8E34c49FB57f43F118a3FF73BBf0b",
+        tokenAddress="0x732C6dc15E58742DD559295Dd7F1eed2fD234D3B",
         tokenId=1,
     )
 )
 queue.append(
     ChainNFTSet(
         chain="avalanche testnet",
-        tokenAddress="0xF457e1DB610B0A6F5d41d8CEf7655A5C68d67D71",
+        tokenAddress="0x19F510B942e5d7D323229cd9171bCcB47ba73573",
         tokenId=1,
     )
 )
 queue.append(
     ChainNFTSet(
         chain="mumbai",
-        tokenAddress="0x0Ca472FbfA460bC45e7DCF2faf97321Be4CF9eB0",
+        tokenAddress="0x291f290a552779954838737D54951b6dfdD50688",
         tokenId=1,
     )
 )
@@ -100,21 +86,21 @@ queue.append(
 queue.append(
     ChainNFTSet(
         chain="eth",
-        tokenAddress="0x0FB768c93FA9f0268EF5eb65F6B06E199Ee68c15",
+        tokenAddress="0xD4a49C9fBD384E8cb8C70A2E53A00595BDE073B8",
         tokenId=1,
     )
 )
 queue.append(
     ChainNFTSet(
         chain="avalanche",
-        tokenAddress="0xceedB5A30dcdd2BB9Ce8e75905a0Dedf96628801",
+        tokenAddress="0xD4a49C9fBD384E8cb8C70A2E53A00595BDE073B8",
         tokenId=1,
     )
 )
 queue.append(
     ChainNFTSet(
         chain="polygon",
-        tokenAddress="0xD4A554B125672CE8dA053205bC9DA4E26aA78f44",
+        tokenAddress="0xD4a49C9fBD384E8cb8C70A2E53A00595BDE073B8",
         tokenId=1,
     )
 )
